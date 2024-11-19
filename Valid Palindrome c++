@@ -1,0 +1,43 @@
+Valid Palindrome code c++
+
+
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+
+        if (s == " ")
+        {
+            return true;
+        }
+
+        int fromEnd = s.length()-1;
+
+        for (int i=0; i <= s.length();)
+        {
+            if (!isalnum(s[i]))
+            {
+                i++;
+                continue;
+            }
+            if (!isalnum(s[fromEnd]))
+            {
+                fromEnd--;
+                continue;
+            }
+
+            if ( (char)tolower(s[i]) == (char)tolower(s[fromEnd]) )
+            {
+                i++;
+                fromEnd--;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+};
